@@ -9,7 +9,9 @@ jobs:
         run: echo "Esse job está rodando em um servidor ${{ runner.os }}."
 
       - name: 📚 Checkout do repositório
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: ▶ Testes e Coverage
         run: make test-coverage
