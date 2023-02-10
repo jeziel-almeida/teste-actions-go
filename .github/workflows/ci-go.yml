@@ -1,0 +1,15 @@
+name: go-github-actions
+run-name: ${{ github.actor }} testing go actions
+on: [push]
+jobs:
+  test-go:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 💻 Máquina virtual
+        run: echo "Esse job está rodando em um servidor ${{ runner.os }}."
+      - name: 📚 Checkout do repositório
+        uses: actions/checkout@v3
+      - name: ▶ Testes e Coverage
+        run: make test-coverage
+      - name: ✔ Status do Job
+        run: echo "Status do job -> ${{ job.status }}."
