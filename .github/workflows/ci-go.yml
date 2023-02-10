@@ -19,7 +19,8 @@ jobs:
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "jeziel.almeida16@gmail.com"
-          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git add .
+          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
 
       - name: ✔ Status do Job
